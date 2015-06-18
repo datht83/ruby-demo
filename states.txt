@@ -1,0 +1,7 @@
+Hanoi,HN,123456
+Hochiminh,HCM
+Danang,DN
+Cantho,CT
+LongAn,LA
+Camau,CM
+Langson,LS
