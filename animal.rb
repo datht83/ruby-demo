@@ -6,6 +6,18 @@ class Animal
     @color = color
   end
 
+  def ==(other)
+    self.name == other.name && self.color == other.color # self.name.==(other.name)
+  end
+
+  def <=>(other)
+    self.name <=> other.name #&& self.color == other.color # self.name.==(other.name)
+  end
+
+  def to_s
+    return "#{@name}, #{@color}"
+  end
+
   def speak
     "Hello, my name is : #{@name}"
   end
@@ -42,35 +54,17 @@ class Hyena < Animal
 
 end
 
-#Main Program
-zoo = []
-10.times do |num|
-  zoo << Zebra.new("Zebra#{num}","black and white", rand(20..100))
-end
-puts zoo.inspect
-puts zoo.count
-puts zoo[rand(0..zoo.count - 1)].speak
-zoo.each do |animal|
-  #puts "#{animal.name} #{animal.color} #{animal.stripes}"
+a  = Zebra.new("Dave","gray",300)
+b  = Zebra.new("Dave","gray",300)
+
+if a == b   #a.==(b)
+  puts"Yay"
+else
+  puts"Boo"
 end
 
-zoo.each do |animal|
-  puts animal.to_csv
+if a <=> b
+  puts "OK"
+else
+  puts "NO"
 end
-
-=begin
-tiger = Tiger.new("tiger","orange")
-zebra = Zebra.new("Zach","black",20)
-
-whoopie = Hyena.new("Whoopie","brown")
-
-puts whoopie.inspect
-puts whoopie.speak
-puts whoopie.identify
-puts zebra.inspect
-puts zebra.speak
-
-puts tiger.inspect
-puts tiger.speak
-puts tiger.identify
-=end
